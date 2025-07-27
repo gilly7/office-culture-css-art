@@ -1,0 +1,1568 @@
+/* Reset and Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: all 0.5s ease;
+}
+
+.container {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f1f5f9, #e2e8f0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+/* Day/Night Toggle */
+.day-night-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle {
+    display: none;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    background: #374151;
+    border-radius: 25px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.sun,
+.moon {
+    font-size: 20px;
+    margin: 0 8px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:checked+.toggle-label .sun {
+    opacity: 0.3;
+}
+
+.theme-toggle:not(:checked)+.toggle-label .moon {
+    opacity: 0.3;
+}
+
+/* Night Mode */
+.theme-toggle:checked~.office-scene .container {
+    background: linear-gradient(to bottom, #1e293b, #0f172a);
+}
+
+.office-scene {
+    position: relative;
+    width: 900px;
+    height: 700px;
+    transform: perspective(1200px) rotateX(8deg);
+}
+
+/* Background Wall */
+.wall {
+    position: absolute;
+    top: -200px;
+    left: -100px;
+    width: 1100px;
+    height: 400px;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Window with Cityscape */
+.window {
+    position: absolute;
+    top: 50px;
+    right: 150px;
+    width: 200px;
+    height: 150px;
+}
+
+.window-frame {
+    width: 100%;
+    height: 100%;
+    background: #8B4513;
+    border-radius: 8px;
+    padding: 8px;
+    position: relative;
+}
+
+.window-pane {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 70%, #90EE90 100%);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cityscape {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.building {
+    position: absolute;
+    bottom: 30%;
+    background: linear-gradient(135deg, #4A5568, #2D3748);
+    border-radius: 2px 2px 0 0;
+}
+
+.building-1 {
+    left: 10%;
+    width: 15px;
+    height: 40px;
+}
+
+.building-2 {
+    left: 25%;
+    width: 20px;
+    height: 50px;
+}
+
+.building-3 {
+    left: 45%;
+    width: 18px;
+    height: 35px;
+}
+
+.building-4 {
+    left: 65%;
+    width: 22px;
+    height: 45px;
+}
+
+.building-5 {
+    left: 85%;
+    width: 16px;
+    height: 38px;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    animation: cloudMove 20s infinite linear;
+}
+
+.cloud-1 {
+    top: 20%;
+    left: -20px;
+    width: 30px;
+    height: 15px;
+}
+
+.cloud-2 {
+    top: 30%;
+    left: -40px;
+    width: 25px;
+    height: 12px;
+    animation-delay: -10s;
+}
+
+.sun-moon {
+    position: absolute;
+    top: 25%;
+    right: 20%;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    animation: sunMove 30s infinite ease-in-out;
+}
+
+.window-cross-h {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #8B4513;
+    transform: translateY(-50%);
+}
+
+.window-cross-v {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #8B4513;
+    transform: translateX(-50%);
+}
+
+/* Wall Clock */
+.wall-clock {
+    position: absolute;
+    top: 60px;
+    left: 100px;
+    width: 80px;
+    height: 80px;
+}
+
+.clock-face {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #FFFFFF, #F3F4F6);
+    border-radius: 50%;
+    border: 4px solid #374151;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.clock-numbers {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.number {
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+    color: #1F2937;
+}
+
+.n12 {
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.n3 {
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.n6 {
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.n9 {
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.clock-hand {
+    position: absolute;
+    background: #1F2937;
+    border-radius: 2px;
+    transform-origin: bottom center;
+    left: 50%;
+}
+
+.hour-hand {
+    width: 3px;
+    height: 20px;
+    top: 30%;
+    transform: translateX(-50%) rotate(45deg);
+    animation: hourRotate 43200s infinite linear;
+}
+
+.minute-hand {
+    width: 2px;
+    height: 28px;
+    top: 22%;
+    transform: translateX(-50%) rotate(180deg);
+    animation: minuteRotate 3600s infinite linear;
+}
+
+.second-hand {
+    width: 1px;
+    height: 30px;
+    top: 20%;
+    background: #EF4444;
+    transform: translateX(-50%) rotate(0deg);
+    animation: secondRotate 60s infinite linear;
+}
+
+.clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: #1F2937;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Shelf with Books and Picture Frame */
+.shelf {
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    width: 180px;
+    height: 60px;
+}
+
+.shelf-board {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book {
+    position: absolute;
+    bottom: 8px;
+    width: 12px;
+    height: 40px;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.book-1 {
+    left: 10px;
+    background: linear-gradient(135deg, #DC2626, #B91C1C);
+}
+
+.book-2 {
+    left: 25px;
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+}
+
+.book-3 {
+    left: 40px;
+    background: linear-gradient(135deg, #059669, #047857);
+}
+
+.book-4 {
+    left: 55px;
+    background: linear-gradient(135deg, #7C2D12, #92400E);
+}
+
+.picture-frame {
+    position: absolute;
+    right: 20px;
+    bottom: 8px;
+    width: 35px;
+    height: 45px;
+}
+
+.frame-border {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #92400E, #B45309);
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #E5E7EB, #F3F4F6);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-content {
+    font-size: 16px;
+}
+
+/* Calendar */
+.calendar {
+    position: absolute;
+    top: 180px;
+    left: 80px;
+    width: 60px;
+    height: 70px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden;
+}
+
+.calendar-header {
+    background: #EF4444;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.calendar-date {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1F2937;
+    margin: 8px 0 4px;
+}
+
+.calendar-day {
+    font-size: 8px;
+    color: #6B7280;
+    margin-bottom: 8px;
+}
+
+/* Ambient Lighting */
+.ambient-light {
+    position: absolute;
+    top: -100px;
+    left: -50px;
+    width: 1000px;
+    height: 300px;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 0, 0.1), transparent);
+    pointer-events: none;
+    animation: ambientPulse 8s infinite ease-in-out;
+}
+
+/* Enhanced Shadows */
+.desk {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.desk-shadow {
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    right: 10px;
+    height: 20px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.2), transparent);
+    border-radius: 50%;
+}
+
+/* Office Chair */
+.office-chair {
+    position: absolute;
+    left: 50px;
+    bottom: -50px;
+    width: 120px;
+    height: 200px;
+    z-index: -1;
+}
+
+.chair-back {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 60px;
+    height: 80px;
+    background: linear-gradient(135deg, #1F2937, #374151);
+    border-radius: 30px 30px 10px 10px;
+}
+
+.chair-mesh {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: repeating-linear-gradient(45deg,
+            transparent,
+            transparent 3px,
+            rgba(255, 255, 255, 0.1) 3px,
+            rgba(255, 255, 255, 0.1) 6px);
+    border-radius: 20px;
+}
+
+.chair-seat {
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    width: 80px;
+    height: 50px;
+    background: linear-gradient(135deg, #374151, #4B5563);
+    border-radius: 40px 40px 20px 20px;
+}
+
+.chair-armrest {
+    position: absolute;
+    top: 60px;
+    width: 15px;
+    height: 40px;
+    background: linear-gradient(135deg, #1F2937, #374151);
+    border-radius: 8px;
+}
+
+.chair-armrest-left {
+    left: 10px;
+}
+
+.chair-armrest-right {
+    right: 10px;
+}
+
+.chair-pole {
+    position: absolute;
+    top: 120px;
+    left: 55px;
+    width: 10px;
+    height: 50px;
+    background: linear-gradient(135deg, #374151, #4B5563);
+    border-radius: 5px;
+}
+
+.chair-base {
+    position: absolute;
+    bottom: 0;
+    left: 35px;
+    width: 50px;
+    height: 50px;
+}
+
+.chair-wheel {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #1F2937;
+    border-radius: 50%;
+}
+
+.wheel-1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wheel-2 {
+    top: 15px;
+    right: 5px;
+}
+
+.wheel-3 {
+    bottom: 5px;
+    right: 15px;
+}
+
+.wheel-4 {
+    bottom: 5px;
+    left: 15px;
+}
+
+.wheel-5 {
+    top: 15px;
+    left: 5px;
+}
+
+/* Enhanced Monitor */
+.monitor {
+    position: absolute;
+    left: 250px;
+    bottom: 80px;
+    width: 320px;
+    height: 220px;
+}
+
+.monitor-shadow {
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    right: 20px;
+    height: 15px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.3), transparent);
+    border-radius: 50%;
+}
+
+.screen {
+    width: 100%;
+    height: 200px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 10px solid #2a2a2a;
+    position: relative;
+    overflow: hidden;
+}
+
+.screen-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.video-call {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 140px;
+    gap: 2px;
+    padding: 8px;
+}
+
+.participant {
+    background: linear-gradient(135deg, #4F46E5, #7C3AED);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.participant:nth-child(3) {
+    background: linear-gradient(135deg, #059669, #10B981);
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+    margin-bottom: 4px;
+    animation: blink 4s infinite;
+}
+
+.name {
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.status-indicator {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 8px;
+    height: 8px;
+    background: #6B7280;
+    border-radius: 50%;
+}
+
+.status-indicator.active {
+    background: #10B981;
+    animation: pulse 2s infinite;
+}
+
+.meeting-controls {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.control-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #374151;
+    position: relative;
+}
+
+.control-btn.mute {
+    background: #EF4444;
+    animation: pulse 3s infinite;
+}
+
+.notification {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: rgba(59, 130, 246, 0.9);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 8px;
+    animation: slideIn 3s infinite;
+}
+
+.monitor-stand {
+    width: 80px;
+    height: 20px;
+    background: #2a2a2a;
+    margin: 0 auto;
+    border-radius: 0 0 12px 12px;
+}
+
+/* Phone/Tablet */
+.phone {
+    position: absolute;
+    right: 180px;
+    bottom: 120px;
+    width: 50px;
+    height: 90px;
+}
+
+.phone-shadow {
+    position: absolute;
+    bottom: -8px;
+    left: 4px;
+    right: 4px;
+    height: 8px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.3), transparent);
+    border-radius: 50%;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1F2937, #374151);
+    border-radius: 12px;
+    border: 2px solid #4B5563;
+    position: relative;
+    padding: 8px;
+}
+
+.phone-time {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.phone-apps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.app-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+.app-1 {
+    background: #3B82F6;
+}
+
+.app-2 {
+    background: #10B981;
+}
+
+.app-3 {
+    background: #F59E0B;
+}
+
+.app-4 {
+    background: #EF4444;
+}
+
+.phone-notification {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+.notification-dot {
+    width: 6px;
+    height: 6px;
+    background: #EF4444;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+/* Enhanced Keyboard */
+.keyboard {
+    position: absolute;
+    left: 180px;
+    bottom: 30px;
+    width: 220px;
+    height: 70px;
+}
+
+.keyboard-shadow {
+    position: absolute;
+    bottom: -10px;
+    left: 8px;
+    right: 8px;
+    height: 10px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.3), transparent);
+    border-radius: 50%;
+}
+
+.keyboard {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.key-row {
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+}
+
+.key {
+    width: 18px;
+    height: 14px;
+    background: linear-gradient(135deg, #4a4a4a, #2a2a2a);
+    border-radius: 3px;
+    border: 1px solid #555;
+    animation: keyPress 5s infinite;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.key:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+.space-bar {
+    width: 80px !important;
+}
+
+/* Enhanced Coffee Mug */
+.coffee-mug {
+    position: absolute;
+    right: 200px;
+    bottom: 80px;
+    width: 70px;
+    height: 90px;
+}
+
+.mug-shadow {
+    position: absolute;
+    bottom: -12px;
+    left: 8px;
+    right: 8px;
+    height: 12px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.4), transparent);
+    border-radius: 50%;
+}
+
+.mug-body {
+    width: 55px;
+    height: 70px;
+    background: linear-gradient(135deg, #FFFFFF, #F3F4F6);
+    border-radius: 0 0 28px 28px;
+    position: relative;
+    border: 3px solid #E5E7EB;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.coffee-surface {
+    position: absolute;
+    top: 10px;
+    left: 6px;
+    right: 6px;
+    height: 45px;
+    background: radial-gradient(ellipse at center, #8B4513, #654321);
+    border-radius: 22px 22px 0 0;
+}
+
+.mug-handle {
+    position: absolute;
+    right: -18px;
+    top: 18px;
+    width: 24px;
+    height: 35px;
+    border: 4px solid #E5E7EB;
+    border-left: none;
+    border-radius: 0 18px 18px 0;
+}
+
+.steam {
+    position: absolute;
+    width: 4px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: steam 2.5s infinite ease-in-out;
+}
+
+.steam-1 {
+    left: 18px;
+    top: -20px;
+}
+
+.steam-2 {
+    left: 28px;
+    top: -25px;
+    animation-delay: 0.5s;
+}
+
+.steam-3 {
+    left: 38px;
+    top: -20px;
+    animation-delay: 1s;
+}
+
+/* Enhanced Mouse */
+.mouse {
+    position: absolute;
+    right: 250px;
+    bottom: 40px;
+    width: 45px;
+    height: 70px;
+}
+
+.mouse-shadow {
+    position: absolute;
+    bottom: -8px;
+    left: 4px;
+    right: 4px;
+    height: 8px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.3), transparent);
+    border-radius: 50%;
+}
+
+.mouse {
+    background: linear-gradient(135deg, #374151, #1F2937);
+    border-radius: 22px 22px 10px 10px;
+    position: relative;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.mouse-wheel {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 18px;
+    background: #4B5563;
+    border-radius: 5px;
+}
+
+.mouse-light {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: #EF4444;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 10px #EF4444;
+}
+
+/* Enhanced Plant with Flower */
+.plant-pot {
+    position: absolute;
+    right: 80px;
+    bottom: 80px;
+    width: 70px;
+    height: 120px;
+}
+
+.pot-shadow {
+    position: absolute;
+    bottom: -12px;
+    left: 8px;
+    right: 8px;
+    height: 12px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.4), transparent);
+    border-radius: 50%;
+}
+
+.pot {
+    position: absolute;
+    bottom: 0;
+    width: 55px;
+    height: 45px;
+    background: linear-gradient(135deg, #92400E, #B45309);
+    border-radius: 0 0 28px 28px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.plant {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.stem {
+    width: 5px;
+    height: 40px;
+    background: linear-gradient(to top, #16A34A, #22C55E);
+    margin: 0 auto;
+    border-radius: 3px;
+}
+
+.leaf {
+    position: absolute;
+    width: 24px;
+    height: 15px;
+    background: linear-gradient(45deg, #22C55E, #16A34A);
+    border-radius: 0 100% 0 100%;
+    animation: sway 4s infinite ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.leaf-1 {
+    top: 8px;
+    left: -20px;
+    transform: rotate(-35deg);
+}
+
+.leaf-2 {
+    top: 12px;
+    right: -20px;
+    transform: rotate(35deg);
+    animation-delay: 0.5s;
+}
+
+.leaf-3 {
+    top: 22px;
+    left: -22px;
+    transform: rotate(-50deg);
+    animation-delay: 1s;
+}
+
+.leaf-4 {
+    top: 26px;
+    right: -22px;
+    transform: rotate(50deg);
+    animation-delay: 1.5s;
+}
+
+.leaf-5 {
+    top: 35px;
+    left: -18px;
+    transform: rotate(-25deg);
+    animation-delay: 2s;
+}
+
+.leaf-6 {
+    top: 38px;
+    right: -18px;
+    transform: rotate(25deg);
+    animation-delay: 2.5s;
+}
+
+.flower {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+}
+
+.petal {
+    position: absolute;
+    width: 8px;
+    height: 12px;
+    background: linear-gradient(45deg, #F472B6, #EC4899);
+    border-radius: 50% 50% 50% 0;
+    transform-origin: bottom center;
+}
+
+.petal-1 {
+    transform: rotate(0deg) translateY(-6px);
+}
+
+.petal-2 {
+    transform: rotate(72deg) translateY(-6px);
+}
+
+.petal-3 {
+    transform: rotate(144deg) translateY(-6px);
+}
+
+.petal-4 {
+    transform: rotate(216deg) translateY(-6px);
+}
+
+.petal-5 {
+    transform: rotate(288deg) translateY(-6px);
+}
+
+.flower-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: #FCD34D;
+    border-radius: 50%;
+}
+
+/* Enhanced Sticky Notes with Shapes and Doodles */
+.sticky-notes {
+    position: absolute;
+    left: 60px;
+    bottom: 140px;
+}
+
+.sticky-note {
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: bold;
+    color: #1F2937;
+    text-align: center;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.sticky-note:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+}
+
+.note-1 {
+    background: #FEF08A;
+    transform: rotate(-8deg);
+    z-index: 4;
+}
+
+.note-2 {
+    background: #FECACA;
+    transform: rotate(5deg) translate(25px, 15px);
+    z-index: 3;
+    border-radius: 50%;
+}
+
+.note-3 {
+    background: #BFDBFE;
+    transform: rotate(-3deg) translate(50px, 8px);
+    z-index: 2;
+    clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 0% 85%);
+}
+
+.note-4 {
+    background: #D1FAE5;
+    transform: rotate(7deg) translate(15px, 35px);
+    z-index: 1;
+}
+
+.note-text {
+    margin-bottom: 4px;
+}
+
+.doodle-star,
+.doodle-heart,
+.doodle-check,
+.doodle-smiley {
+    font-size: 12px;
+    animation: doodleBounce 3s infinite ease-in-out;
+}
+
+.doodle-heart {
+    animation-delay: 0.5s;
+}
+
+.doodle-check {
+    animation-delay: 1s;
+}
+
+.doodle-smiley {
+    animation-delay: 1.5s;
+}
+
+/* Enhanced Desk Lamp */
+.desk-lamp {
+    position: absolute;
+    left: 60px;
+    bottom: 80px;
+    width: 90px;
+    height: 140px;
+}
+
+.lamp-shadow {
+    position: absolute;
+    bottom: -15px;
+    left: 15px;
+    right: 15px;
+    height: 15px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.4), transparent);
+    border-radius: 50%;
+}
+
+.lamp-base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 18px;
+    background: linear-gradient(135deg, #374151, #1F2937);
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.lamp-arm {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%) rotate(50deg);
+    width: 5px;
+    height: 70px;
+    background: linear-gradient(135deg, #374151, #4B5563);
+    border-radius: 3px;
+    transform-origin: bottom;
+}
+
+.lamp-head {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35px;
+    height: 25px;
+    background: linear-gradient(135deg, #374151, #1F2937);
+    border-radius: 18px 18px 8px 8px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.light-beam {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 80px solid rgba(255, 255, 0, 0.15);
+    animation: flicker 5s infinite;
+}
+
+/* Enhanced Stress Ball */
+.stress-ball {
+    position: absolute;
+    right: 120px;
+    bottom: 100px;
+    width: 35px;
+    height: 35px;
+}
+
+.stress-ball-shadow {
+    position: absolute;
+    bottom: -8px;
+    left: 4px;
+    right: 4px;
+    height: 8px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.3), transparent);
+    border-radius: 50%;
+}
+
+.stress-ball {
+    background: radial-gradient(circle at 30% 30%, #F59E0B, #D97706);
+    border-radius: 50%;
+    animation: squeeze 4s infinite;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Papers */
+.papers {
+    position: absolute;
+    left: 450px;
+    bottom: 80px;
+}
+
+.paper-shadow {
+    position: absolute;
+    bottom: -10px;
+    left: 8px;
+    right: 8px;
+    height: 10px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.2), transparent);
+    border-radius: 50%;
+}
+
+.paper {
+    position: absolute;
+    width: 90px;
+    height: 110px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+.paper-1 {
+    transform: rotate(3deg);
+    z-index: 3;
+}
+
+.paper-2 {
+    transform: rotate(-2deg) translate(12px, 8px);
+    z-index: 2;
+}
+
+.paper-3 {
+    transform: rotate(2deg) translate(24px, 15px);
+    z-index: 1;
+}
+
+/* Enhanced Pen Holder */
+.pen-holder {
+    position: absolute;
+    right: 30px;
+    bottom: 80px;
+    width: 45px;
+    height: 70px;
+}
+
+.pen-holder-shadow {
+    position: absolute;
+    bottom: -10px;
+    left: 4px;
+    right: 4px;
+    height: 10px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.3), transparent);
+    border-radius: 50%;
+}
+
+.holder {
+    width: 45px;
+    height: 55px;
+    background: linear-gradient(135deg, #1F2937, #374151);
+    border-radius: 0 0 23px 23px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.pen {
+    position: absolute;
+    width: 4px;
+    height: 50px;
+    border-radius: 2px;
+    bottom: 8px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.pen-1 {
+    left: 12px;
+    background: linear-gradient(to top, #1F2937, #3B82F6);
+}
+
+.pen-2 {
+    left: 20px;
+    background: linear-gradient(to top, #1F2937, #EF4444);
+    height: 45px;
+}
+
+.pen-3 {
+    left: 28px;
+    background: linear-gradient(to top, #1F2937, #10B981);
+    height: 48px;
+}
+
+/* Night Mode Styles */
+body:has(.theme-toggle:checked) .container {
+    background: linear-gradient(to bottom, #0f172a, #020617);
+}
+
+body:has(.theme-toggle:checked) .wall {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+}
+
+body:has(.theme-toggle:checked) .sun-moon {
+    background: radial-gradient(circle, #E5E7EB, #9CA3AF);
+}
+
+body:has(.theme-toggle:checked) .ambient-light {
+    background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1), transparent);
+}
+
+/* Enhanced Animations */
+@keyframes cloudMove {
+    0% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(220px);
+    }
+}
+
+@keyframes sunMove {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes hourRotate {
+    0% {
+        transform: translateX(-50%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(405deg);
+    }
+}
+
+@keyframes minuteRotate {
+    0% {
+        transform: translateX(-50%) rotate(180deg);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(540deg);
+    }
+}
+
+@keyframes secondRotate {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+@keyframes slideIn {
+
+    0%,
+    70%,
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    10%,
+    60% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ambientPulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes doodleBounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes steam {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-15px) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.8);
+    }
+}
+
+@keyframes keyPress {
+
+    0%,
+    90% {
+        transform: translateY(0);
+    }
+
+    5% {
+        transform: translateY(3px);
+    }
+
+    10% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+}
+
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(8deg);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    90%,
+    100% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes squeeze {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.85);
+    }
+}
+
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
