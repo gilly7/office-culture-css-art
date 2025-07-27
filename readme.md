@@ -13,7 +13,7 @@ An interactive and visually rich CSS art project that recreates a modern office 
 
 Open `index.html` in your browser to view the office scene.
 
-![Screenshot](screenshot.png) <!-- Add a screenshot if available -->
+![Screenshot](Screenshot.png) <!-- Add a screenshot if available -->
 
 ## How It Works
 
